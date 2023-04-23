@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
 }
 
 android {
@@ -52,6 +53,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
     implementation "com.google.dagger:hilt-android:$hilt"
     implementation "androidx.hilt:hilt-navigation-compose:$hiltCompose"
+
+    // compose destinations
+    implementation "io.github.raamcosta.compose-destinations:core:$composeDestinations"
+    ksp "io.github.raamcosta.compose-destinations:ksp:$composeDestinations"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
