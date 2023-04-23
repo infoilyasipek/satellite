@@ -1,4 +1,4 @@
-package com.example.satellite.ui.theme
+package com.example.presentation.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
