@@ -38,6 +38,9 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
     implementation "com.google.dagger:hilt-android:$hilt"
 
+    // gson
+    implementation "com.google.code.gson:gson:$gson"
+
     implementation 'androidx.core:core-ktx:1.7.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

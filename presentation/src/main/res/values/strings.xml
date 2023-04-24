@@ -1,0 +1,9 @@
+<resources>
+
+    <!--  Home screen  -->
+    <string name="search_hint">Search</string>
+    <string name="passive">Passive</string>
+    <string name="active">Active</string>
+    <string name="no_satellites_found_for_search_query">No satellites found for search query :(</string>
+
+</resources>
