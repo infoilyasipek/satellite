@@ -51,6 +51,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
     implementation "com.google.dagger:hilt-android:$hilt"
 
+    // room
+    implementation "androidx.room:room-runtime:$room"
+    annotationProcessor "androidx.room:room-compiler:$room"
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

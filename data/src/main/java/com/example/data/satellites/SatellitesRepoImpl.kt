@@ -4,6 +4,7 @@ import com.example.data.satellites.datasource.SatellitesDataSource
 import com.example.data.satellites.model.PositionResponse
 import com.example.data.satellites.model.SatelliteResponse
 import com.example.data.satellites.model.toDomain
+import com.example.data.satellites.model.toEntity
 import com.example.domain.satellites.model.Satellite
 import com.example.domain.satellites.model.SatelliteDetail
 import com.example.domain.satellites.model.SatellitePosition
@@ -13,19 +14,26 @@ import javax.inject.Singleton
 
 @Singleton
 class SatellitesRepoImpl @Inject constructor(
-    private val satellitesAssetDataSource: SatellitesDataSource.Asset
+    private val assetSource: SatellitesDataSource.Asset,
+    private val dbSource: SatellitesDataSource.DB
 ) : SatellitesRepo {
 
     override suspend fun getSatellites(): List<Satellite> {
-        return satellitesAssetDataSource.getSatellites().map(SatelliteResponse::toDomain)
+        return assetSource.getSatellites().map(SatelliteResponse::toDomain)
     }
 
     override suspend fun getSatelliteDetail(satelliteId: Int): SatelliteDetail {
-        return satellitesAssetDataSource.getSatelliteDetail(satelliteId).toDomain()
+        val satelliteDetailFromDB = dbSource.getSatelliteDetail(satelliteId)
+        if (satelliteDetailFromDB != null) return satelliteDetailFromDB.toDomain()
+
+        val satelliteDetail = assetSource.getSatelliteDetail(satelliteId).toDomain().also {
+            dbSource.saveSatelliteDetail(it.toEntity())
+        }
+        return satelliteDetail
     }
 
     override suspend fun getSatellitePosition(satelliteId: Int): List<SatellitePosition> {
-        val positions = satellitesAssetDataSource.getSatellitePosision(satelliteId).positions
+        val positions = assetSource.getSatellitePosision(satelliteId).positions
         return positions.map(PositionResponse::toDomain)
     }
 }
