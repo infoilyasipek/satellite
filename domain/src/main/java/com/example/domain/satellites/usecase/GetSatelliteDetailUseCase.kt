@@ -1,4 +1,4 @@
-package com.example.domain.satellites.model.usecase
+package com.example.domain.satellites.usecase
 
 import com.example.domain.satellites.model.SatelliteDetail
 import com.example.domain.satellites.model.SatellitesRepo

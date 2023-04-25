@@ -2,8 +2,8 @@ package com.example.presentation.ui.screens.detail
 
 import androidx.lifecycle.viewModelScope
 import com.example.domain.satellites.model.SatellitePosition
-import com.example.domain.satellites.model.usecase.GetSatelliteDetailUseCase
-import com.example.domain.satellites.model.usecase.GetSatellitePositionsUseCase
+import com.example.domain.satellites.usecase.GetSatelliteDetailUseCase
+import com.example.domain.satellites.usecase.GetSatellitePositionsUseCase
 import com.example.presentation.ui.base.BaseViewModel
 import com.example.presentation.ui.screens.detail.SatelliteDetailContract.*
 import dagger.hilt.android.lifecycle.HiltViewModel

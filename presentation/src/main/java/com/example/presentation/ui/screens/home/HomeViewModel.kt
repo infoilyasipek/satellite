@@ -1,7 +1,7 @@
 package com.example.presentation.ui.screens.home
 
-import com.example.domain.satellites.model.usecase.GetSatellitesUseCase
-import com.example.domain.satellites.model.usecase.SearchSatellitesUseCase
+import com.example.domain.satellites.usecase.GetSatellitesUseCase
+import com.example.domain.satellites.usecase.SearchSatellitesUseCase
 import com.example.presentation.ui.base.BaseViewModel
 import com.example.presentation.ui.screens.home.HomeContract.*
 import dagger.hilt.android.lifecycle.HiltViewModel
