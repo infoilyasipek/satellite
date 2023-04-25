@@ -5,6 +5,9 @@ import com.example.data.satellites.model.SatelliteDetailResponse
 import com.example.data.satellites.model.SatellitePositionResponse
 import com.example.data.satellites.model.SatellitePositionsResponseWrapper
 import com.example.data.satellites.model.SatelliteResponse
+import com.example.data.utils.Constants.SATELLITES_ASSET_PATH
+import com.example.data.utils.Constants.SATELLITES_DETAIL_ASSET_PATH
+import com.example.data.utils.Constants.SATELLITES_POSITIONS_ASSET_PATH
 import com.example.data.utils.readAssetFile
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +25,7 @@ class SatelliteAssetDataSource @Inject constructor(
 
         applicationContext
             .assets
-            .readAssetFile("satellites/satellites.json")
+            .readAssetFile(fileName = SATELLITES_ASSET_PATH)
     }
 
     override suspend fun getSatelliteDetail(satelliteId: Int): SatelliteDetailResponse =
@@ -32,7 +35,7 @@ class SatelliteAssetDataSource @Inject constructor(
 
             val details = applicationContext
                 .assets
-                .readAssetFile<List<SatelliteDetailResponse>>("satellites/satellites_detail.json")
+                .readAssetFile<List<SatelliteDetailResponse>>(fileName = SATELLITES_DETAIL_ASSET_PATH)
 
             details.first { it.id == satelliteId }
         }
@@ -44,7 +47,7 @@ class SatelliteAssetDataSource @Inject constructor(
 
             val satellitePositionsResponseWrapper = applicationContext
                 .assets
-                .readAssetFile<SatellitePositionsResponseWrapper>("satellites/positions.json")
+                .readAssetFile<SatellitePositionsResponseWrapper>(fileName = SATELLITES_POSITIONS_ASSET_PATH)
 
             satellitePositionsResponseWrapper.items.first { it.satelliteId == satelliteId.toString() }
         }
