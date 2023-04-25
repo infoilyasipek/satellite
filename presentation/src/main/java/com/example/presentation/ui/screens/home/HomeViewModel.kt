@@ -35,6 +35,9 @@ class HomeViewModel @Inject constructor(
             is Intent.Search -> {
                 search(searchQuery = intent.query)
             }
+            is Intent.OnSatelliteItemClick -> {
+                triggerEvent(Event.NavigateToSatelliteDetail(satellite = intent.satellite))
+            }
         }
     }
 

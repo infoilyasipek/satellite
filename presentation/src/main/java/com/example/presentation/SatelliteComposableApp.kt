@@ -5,8 +5,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.presentation.ui.composables.SatelliteCircularLoadingDialog
-import com.example.presentation.ui.screens.home.NavGraphs
-import com.example.presentation.ui.screens.home.destinations.HomeScreenDestination
+import com.example.presentation.ui.screens.NavGraphs
+import com.example.presentation.ui.screens.destinations.HomeScreenDestination
 import com.example.presentation.ui.theme.SatelliteTheme
 import com.example.presentation.utils.LoadingManager
 import com.ramcosta.composedestinations.DestinationsNavHost

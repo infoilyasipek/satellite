@@ -15,7 +15,10 @@ interface HomeContract {
 
     sealed class Intent {
         data class Search(val query: String) : Intent()
+        data class OnSatelliteItemClick(val satellite: Satellite) : Intent()
     }
 
-    sealed class Event
+    sealed class Event {
+        data class NavigateToSatelliteDetail(val satellite: Satellite) : Event()
+    }
 }
