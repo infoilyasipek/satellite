@@ -50,6 +50,7 @@ dependencies {
     // Hilt
     kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
     implementation "com.google.dagger:hilt-android:$hilt"
+    implementation "androidx.hilt:hilt-navigation-compose:$hiltCompose"
 
     // room
     implementation "androidx.room:room-runtime:$room"
