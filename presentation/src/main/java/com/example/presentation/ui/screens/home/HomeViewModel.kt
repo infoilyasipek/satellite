@@ -53,7 +53,8 @@ class HomeViewModel @Inject constructor(
         searchJob = withUseCaseScope(
             loadingUpdater = ::updateLoadingState
         ) {
-            delay(200)
+            delay(SEARCH_MORE_INPUT_WAITING_DELAY)
+
             val searchResult = searchSatellitesUseCase(
                 allSatellites = uiState.value.allSatellites,
                 query = searchQuery
@@ -69,5 +70,9 @@ class HomeViewModel @Inject constructor(
 
     private fun updateLoadingState(isLoading: Boolean) {
         updateUiState { copy(isLoading = isLoading) }
+    }
+
+    companion object {
+        private const val SEARCH_MORE_INPUT_WAITING_DELAY = 200L
     }
 }

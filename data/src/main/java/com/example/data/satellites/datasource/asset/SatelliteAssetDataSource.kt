@@ -1,6 +1,7 @@
-package com.example.data.satellites.datasource
+package com.example.data.satellites.datasource.asset
 
 import android.content.Context
+import com.example.data.satellites.datasource.SatellitesDataSource
 import com.example.data.satellites.model.SatelliteDetailResponse
 import com.example.data.satellites.model.SatellitePositionResponse
 import com.example.data.satellites.model.SatellitePositionsResponseWrapper
@@ -40,7 +41,7 @@ class SatelliteAssetDataSource @Inject constructor(
             details.first { it.id == satelliteId }
         }
 
-    override suspend fun getSatellitePosision(satelliteId: Int): SatellitePositionResponse {
+    override suspend fun getSatellitePosition(satelliteId: Int): SatellitePositionResponse {
         return withContext(Dispatchers.IO) {
             // delay to simulate network request
             delay(1000)

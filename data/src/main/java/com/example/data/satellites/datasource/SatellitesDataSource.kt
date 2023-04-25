@@ -11,7 +11,7 @@ interface SatellitesDataSource {
 
         suspend fun getSatelliteDetail(satelliteId: Int): SatelliteDetailResponse
 
-        suspend fun getSatellitePosision(satelliteId: Int): SatellitePositionResponse
+        suspend fun getSatellitePosition(satelliteId: Int): SatellitePositionResponse
     }
 
     interface DB {

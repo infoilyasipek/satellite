@@ -1,7 +1,7 @@
 package com.example.satellite.di
 
-import com.example.data.satellites.datasource.SatelliteAssetDataSource
 import com.example.data.satellites.datasource.SatellitesDataSource
+import com.example.data.satellites.datasource.asset.SatelliteAssetDataSource
 import com.example.data.satellites.datasource.db.SatelliteDBDataSource
 import dagger.Module
 import dagger.Provides

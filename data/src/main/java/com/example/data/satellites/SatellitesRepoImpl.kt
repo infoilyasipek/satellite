@@ -33,7 +33,7 @@ class SatellitesRepoImpl @Inject constructor(
     }
 
     override suspend fun getSatellitePosition(satelliteId: Int): List<SatellitePosition> {
-        val positions = assetSource.getSatellitePosision(satelliteId).positions
+        val positions = assetSource.getSatellitePosition(satelliteId).positions
         return positions.map(PositionResponse::toDomain)
     }
 }

@@ -19,9 +19,9 @@ object DataModule {
     fun provideAppDatabase(
         @ApplicationContext context: Context
     ) = Room.databaseBuilder(
-        context,
-        SatelliteDB::class.java,
-        "satellite.db"
+        context = context,
+        klass = SatelliteDB::class.java,
+        name = "satellite.db"
     ).build()
 
     @Singleton
