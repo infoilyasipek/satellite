@@ -10,7 +10,7 @@
     <string name="satellite_detail_screen_title">Satellite Detail</string>
     <string name="height_and_mess_title">Height/Mess</string>
     <string name="cost_title">Cost</string>
-    <string name="last_position_title">Cost</string>
+    <string name="last_position_title">Last Position</string>
     <string name="last_position_description">(%s,%s)</string>
 
 </resources>
