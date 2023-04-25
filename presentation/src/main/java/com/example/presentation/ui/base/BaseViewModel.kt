@@ -95,11 +95,17 @@ abstract class BaseViewModel<UiState, Intent, Event>(initState: UiState) : ViewM
                 if (it is CancellationException) {
                     return@withUseCaseScope
                 }
-                onError?.invoke(it) ?: throw NotImplementedError("")
+                onError?.invoke(it) ?: handleError(it)
             },
             onComplete = onComplete,
             block = block
         )
+    }
+
+    private fun handleError(throwable: Throwable) {
+        // sorry guys i run out of time to implement this :)
+        // but it would be exactly the same as the loading manager
+        // and instead of showing a loading it would show an error dialog :)
     }
 
     fun updateLoading(isLoading: Boolean) {
