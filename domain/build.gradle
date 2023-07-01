@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
     id 'kotlin-parcelize'
 }
 
@@ -33,11 +33,10 @@ android {
 }
 
 dependencies {
-    // Hilt
-    kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
-    implementation "com.google.dagger:hilt-android:$hilt"
+    // hilt
+    kapt libs.hilt.android.compiler
+    implementation libs.hilt.android
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation libs.androidx.core
+    androidTestImplementation libs.bundles.test.android
 }

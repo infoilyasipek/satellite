@@ -1,7 +1,7 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
 }
 
 android {
@@ -34,20 +34,19 @@ android {
 dependencies {
     implementation project(":domain")
 
-    // Hilt
-    kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
-    implementation "com.google.dagger:hilt-android:$hilt"
-
-    // gson
-    implementation "com.google.code.gson:gson:$gson"
-
-    implementation 'androidx.core:core-ktx:1.7.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // hilt
+    kapt libs.hilt.android.compiler
+    implementation libs.hilt.android
+    annotationProcessor libs.hilt.android.compiler
 
     // room
-    implementation "androidx.room:room-runtime:$room"
-    annotationProcessor "androidx.room:room-compiler:$room"
-    kapt "androidx.room:room-compiler:$room"
+    kapt libs.room.compiler
+    implementation libs.room.runtime
+    annotationProcessor libs.room.compiler
+
+    implementation libs.gson
+    implementation libs.androidx.core
+    androidTestImplementation libs.bundles.test.android
+    testImplementation libs.bundles.test.unit
+
 }

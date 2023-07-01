@@ -1,9 +1,9 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.google.dagger.hilt.android'
-    id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.ksp
+    alias libs.plugins.hilt
 }
 
 android {
@@ -41,27 +41,30 @@ android {
 
 dependencies {
     implementation project(":domain")
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.7.1'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.1.0-rc01'
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
 
-    // Hilt
-    kapt "com.google.dagger:hilt-android-compiler:$hiltCompiler"
-    implementation "com.google.dagger:hilt-android:$hilt"
-    implementation "androidx.hilt:hilt-navigation-compose:$hiltCompose"
+    // hilt
+    kapt libs.hilt.android.compiler
+    implementation libs.hilt.android
+    annotationProcessor libs.hilt.android.compiler
+    implementation libs.hilt.android.compose
+
+    // compose
+    implementation libs.compose.ui
+    implementation libs.compose.material3
+    implementation libs.compose.accompanist
+    implementation libs.compose.activity
+    implementation libs.compose.toolingPreview
+    debugImplementation libs.compose.tooling
+    debugImplementation libs.compose.uiTestManifest
 
     // compose destinations
-    implementation "io.github.raamcosta.compose-destinations:core:$composeDestinations"
-    ksp "io.github.raamcosta.compose-destinations:ksp:$composeDestinations"
+    implementation libs.compose.destinations.core
+    ksp libs.compose.destinations.ksp
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    // androidx
+    implementation libs.androidx.core
+    implementation libs.androidx.lifecycle.runtimeKtx
+
+    androidTestImplementation libs.bundles.test.android
+    testImplementation libs.bundles.test.unit
 }
